@@ -1,0 +1,10 @@
+<h2>Reviews</h2>
+
+<% if @restaurant.reviews.present? %>
+  <% @restaurant.reviews.each do |review| %>
+    <p><strong>Nota:</strong> <%= review.rating %> - <%= review.content %></p>
+  <% end %>
+<% else %>
+  <p>No reviews yet!</p>
+  <%= link_to "Adicionar Review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+<% end %>
